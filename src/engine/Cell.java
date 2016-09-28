@@ -14,5 +14,9 @@ public class Cell {
 	public List<Piece> getPieces(){
 		return pieces;
 	}
+	
+	public void add(Piece piece){
+		pieces.add(piece);
+	}
 
 }
