@@ -1,0 +1,17 @@
+# Java
+
+*.jar
+*.class
+
+# Eclipse
+
+bin/
+.classpath
+.project
+.settings/
+doc/javadoc/*
+
+# Misc
+
+*~
+*.DS_Store
