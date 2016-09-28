@@ -18,5 +18,13 @@ public class Cell {
 	public void add(Piece piece){
 		pieces.add(piece);
 	}
+	
+	public void remove(Piece piece){
+		pieces.remove(piece);
+	}
+	
+	public boolean contains(Piece piece){
+		return pieces.contains(piece);
+	}
 
 }
