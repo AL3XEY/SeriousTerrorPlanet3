@@ -1,32 +1,42 @@
 package engine;
+import java.util.Random;
 
 public class Game {
 
-	private Player bluePlayer;
-	private Player redPlayer;
-	private Map map;
+	private static Map map;
+	private int idJoueurActuel;
 	
-	public Game(){
-		map = new Map();
+	public Game() {
+		Random rng = new Random();
+		this.idJoueurActuel = rng.nextInt(1);
+		this.map = new Map();
 	}
 	
 	public void battle(){
-		//for
+		this.map.battle();
 	}
 	
-	public void movePiece(Player player, int i, int j){
-		Piece piece;
-		if(player.equals(redPlayer)){
-			piece = new RedPiece();
-		}else{
-			piece = new BluePiece();
-		}
-		
-		try{
-			map.movePiece(piece, i, j);
-		}catch(NoPieceInCellException e){
+	/*public void movePiece(int player, int caseDepart, int caseArrivee){		
+		try {
+			map.movePiece(player, caseDepart, caseArrivee);
+		} catch(NoPieceInCellException e) {
 			System.err.println(e);
 		}
+	}*/
+	
+	public void turn() {
+		// Récupère les inputs du joueur
+		
+		// Test si la syntaxe est valide
+		
+		// Test si les actions sont valides (points de mouvement)
+		
+		// Effectue les mouvements
+		
+	}
+	
+	public static void main(String[] args) {
+		Game game = new Game();		
 	}
 	
 }
