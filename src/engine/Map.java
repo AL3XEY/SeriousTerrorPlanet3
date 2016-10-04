@@ -45,6 +45,8 @@ public class Map {
 	}
 	
 	public int testMove(int player, int caseDepart, int caseArrivee, int pointsDeplacement){
+		//TODO test if player does have a piece on this cell
+		
 		//TODO test if correct move number
 		
 		//TODO test if valid move (for the special last cell)

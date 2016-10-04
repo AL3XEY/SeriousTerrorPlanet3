@@ -1,5 +1,6 @@
 package engine;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Game {
 
@@ -12,9 +13,9 @@ public class Game {
 		this.map = new Map();
 	}
 	
-	public void battle(){
+	/*public void battle(){
 		this.map.battle();
-	}
+	}*/
 	
 	/*public void movePiece(int player, int caseDepart, int caseArrivee){		
 		try {
@@ -25,14 +26,26 @@ public class Game {
 	}*/
 	
 	public void turn() {
-		// RÃ©cupÃ¨re les inputs du joueur
-		
-		// Test si la syntaxe est valide
-		
+		System.out.println("C'est au tour du joueur " + idJoueurActuel + " !");
+		System.out.println("Veuillez entrer vos déplacements : ");
+		// Récupère les inputs du joueur
+		String input;
+	    Scanner scanIn = new Scanner(System.in);
+	    do{
+	    	input = scanIn.nextLine();
+	    }while(false); // Test si la syntaxe est valide
+	    scanIn.close();
 		// Test si les actions sont valides (points de mouvement)
-		
+		//TODO
 		// Effectue les mouvements
-		
+		//TODO
+		// Change de joueur
+		togglePlayer();
+	}
+	
+	private void togglePlayer(){
+		idJoueurActuel++;
+		idJoueurActuel%=2;
 	}
 	
 	public static void main(String[] args) {
