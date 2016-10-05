@@ -1,4 +1,7 @@
 package engine;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -35,28 +38,32 @@ public class Game {
 		System.out.println("Veuillez entrer vos déplacements : ");
 		// Récupère les inputs du joueur
 		String input;
-	    Scanner scanIn = new Scanner(System.in);
-	    do{
-	    	input = scanIn.nextLine(); //FIXME throws NoSuchElementException
-	    }while(syntaxIsValid(input));//TODO Test si la syntaxe est valide
-	    scanIn.close();
-	    Actions actions = new Actions(input);
-		// Test si les actions sont valides (points de mouvement)
-		//TODO
-		// Effectue les mouvements
-		//TODO
-	    int[][] movments = actions.getMovments();
-	    int start, end;
-	    for(int i = 0; i<actions.getCount();i++){
-	    	start = movments[i][0];
-	    	end = movments[i][1];
-	    	map.movePiece(idJoueurActuel, start, end);
-	    }
-	    if(actions.isBattle()){
-	    	map.battle();
-	    }
-		// Change de joueur
-		togglePlayer();
+		try{
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			do{
+				input = br.readLine();
+		    }while(syntaxIsValid(input));//TODO Test si la syntaxe est valide
+			//br.close();
+		    Actions actions = new Actions(input);
+			// Test si les actions sont valides (points de mouvement)
+			//TODO
+			// Effectue les mouvements
+			//TODO
+		    int[][] movments = actions.getMovments();
+		    int start, end;
+		    for(int i = 0; i<actions.getCount();i++){
+		    	start = movments[i][0];
+		    	end = movments[i][1];
+		    	map.movePiece(idJoueurActuel, start, end);
+		    }
+		    if(actions.isBattle()){
+		    	map.battle();
+		    }
+			// Change de joueur
+			togglePlayer();
+		}catch(IOException e){
+			System.err.println(e.getMessage());
+		}
 	}
 	
 	private boolean syntaxIsValid(String input){
